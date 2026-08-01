@@ -30,7 +30,7 @@ export const HeaderNavigation: React.FC<HeaderProps> = ({
         >
           <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-amber-500/30 bg-slate-900 shadow-md shadow-amber-500/10">
             <img 
-              src="/icons/logo.png" 
+              src="icons/logo.png" 
               alt="Kingstars Logo" 
               className="h-full w-full object-cover"
               referrerPolicy="no-referrer"

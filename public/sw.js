@@ -1,11 +1,16 @@
-const CACHE_NAME = 'kingstars-chess-v1';
+const CACHE_NAME = 'kingstars-chess-v2';
+
+// Dynamically determine base path from service worker location
+const swLocation = self.location.pathname;
+const basePath = swLocation.substring(0, swLocation.lastIndexOf('/'));
+
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/logo.png',
-  '/style.css',
-  '/script.js'
+  basePath + '/',
+  basePath + '/index.html',
+  basePath + '/manifest.json',
+  basePath + '/icons/logo.png',
+  basePath + '/style.css',
+  basePath + '/script.js'
 ];
 
 // Install event - Cache core static assets
@@ -75,7 +80,7 @@ self.addEventListener('fetch', (event) => {
         .catch(() => {
           // If HTML page request fails and offline, return cached root
           if (event.request.headers.get('accept')?.includes('text/html')) {
-            return caches.match('/');
+            return caches.match(basePath + '/index.html').then(res => res || caches.match(basePath + '/'));
           }
         });
     })

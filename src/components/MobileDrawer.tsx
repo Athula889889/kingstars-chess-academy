@@ -54,7 +54,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-amber-500/30 bg-slate-900">
               <img 
-                src="/icons/logo.png" 
+                src="icons/logo.png" 
                 alt="Logo" 
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"

@@ -65,7 +65,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-lg sm:flex-row sm:justify-center">
+          <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-xl sm:flex-row sm:justify-center">
             <button
               onClick={() => setActiveTab('learn')}
               className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-5 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 transition-all hover:from-amber-400 hover:to-amber-500 active:scale-95"
@@ -81,6 +81,16 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
               <Puzzle className="h-5 w-5 text-amber-400" />
               <span>Play Puzzles (200)</span>
             </button>
+
+            {installable && (
+              <button
+                onClick={onInstallClick}
+                className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-5 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-500/30 transition-all hover:brightness-110 active:scale-95"
+              >
+                <Download className="h-5 w-5" />
+                <span>Install App</span>
+              </button>
+            )}
 
             <a
               href={`https://wa.me/94715119204?text=${encodeURIComponent("Hello Trincomalee Kingstars Chess Academy,\n\nI would like to get more information about Chess Training.\n\nLocation: Trincomalee")}`}

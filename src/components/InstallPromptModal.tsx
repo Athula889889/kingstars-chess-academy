@@ -31,7 +31,7 @@ export const InstallPromptModal: React.FC<InstallModalProps> = ({
 
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/40 bg-slate-900 shadow-xl">
           <img
-            src="/icons/logo.png"
+            src="icons/logo.png"
             alt="Logo"
             className="h-full w-full object-contain"
             referrerPolicy="no-referrer"

@@ -46,23 +46,35 @@ export default function App() {
     };
   });
 
-  // Listen for PWA beforeinstallprompt event
+  // Listen for PWA beforeinstallprompt and appinstalled events
   useEffect(() => {
+    const isStandalone =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      (navigator as any).standalone === true;
+
+    if (isStandalone) {
+      setIsInstallable(false);
+    } else {
+      setIsInstallable(true);
+    }
+
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       setIsInstallable(true);
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    // Check if app is already running in standalone mode
-    if (window.matchMedia('(display-mode: standalone)').matches) {
+    const handleAppInstalled = () => {
       setIsInstallable(false);
-    }
+      setDeferredPrompt(null);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
 
