@@ -1,0 +1,6 @@
+{
+  "name": "Trincomalee Kingstars Chess Academy",
+  "description": "Mobile-first PWA for Trincomalee Kingstars Chess Academy featuring interactive chess lessons, 100 Mate-in-1 & 100 Mate-in-2 puzzles, tournament listings, academy info, and offline support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
