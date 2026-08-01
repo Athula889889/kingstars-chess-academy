@@ -69,10 +69,11 @@ export const ACADEMY_INFO = {
 };
 
 export const CONTACT_DETAILS: ContactInfo = {
-  phone: '+94 77 123 4567',
-  whatsapp: '+94771234567',
+  phone: '+94 71 511 9204',
+  whatsapp: '+94715119204',
+  whatsappDisplay: '+94 71 511 9204',
   email: 'info@kingstarschess.lk',
   facebook: 'https://facebook.com/kingstarschess',
-  address: 'No. 142, Central Road, Trincomalee, Sri Lanka',
+  address: 'Trincomalee',
   workingHours: 'Mon - Sun: 8:00 AM - 7:00 PM'
 };

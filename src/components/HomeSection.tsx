@@ -65,23 +65,32 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="mt-8 flex w-full max-w-sm flex-col gap-3 sm:max-w-md sm:flex-row sm:justify-center">
+          <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-lg sm:flex-row sm:justify-center">
             <button
               onClick={() => setActiveTab('learn')}
-              className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 transition-all hover:from-amber-400 hover:to-amber-500 hover:shadow-amber-500/40 active:scale-95"
+              className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-5 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 transition-all hover:from-amber-400 hover:to-amber-500 active:scale-95"
             >
               <BookOpen className="h-5 w-5" />
               <span>Learn Chess</span>
-              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
 
             <button
               onClick={() => setActiveTab('puzzles')}
-              className="flex items-center justify-center gap-2 rounded-xl border border-amber-500/40 bg-slate-900/80 px-6 py-3.5 text-sm font-bold text-amber-300 transition-all hover:bg-slate-800 hover:text-amber-200 active:scale-95"
+              className="flex items-center justify-center gap-2 rounded-xl border border-amber-500/40 bg-slate-900/80 px-5 py-3.5 text-sm font-bold text-amber-300 transition-all hover:bg-slate-800 hover:text-amber-200 active:scale-95"
             >
               <Puzzle className="h-5 w-5 text-amber-400" />
               <span>Play Puzzles (200)</span>
             </button>
+
+            <a
+              href={`https://wa.me/94715119204?text=${encodeURIComponent("Hello Trincomalee Kingstars Chess Academy,\n\nI would like to get more information about Chess Training.\n\nLocation: Trincomalee")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 px-5 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25 transition-all hover:from-emerald-400 hover:to-teal-500 active:scale-95"
+            >
+              <Smartphone className="h-5 w-5" />
+              <span>Contact Academy</span>
+            </a>
           </div>
 
           {/* Stats Bar */}

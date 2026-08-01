@@ -8,12 +8,23 @@ export const ContactSection: React.FC = () => {
   const [formMessage, setFormMessage] = useState('');
   const [sent, setSent] = useState(false);
 
+  const whatsappNumber = '94715119204';
+  const whatsappDisplayNumber = '+94 71 511 9204';
+
+  const defaultMessage = `Hello Trincomalee Kingstars Chess Academy,
+
+I would like to get more information about Chess Training.
+
+Location: Trincomalee`;
+
+  const primaryWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formName || !formMessage) return;
 
-    const msg = `Inquiry for Trincomalee Kingstars Chess Academy:%0A%0AName: ${formName}%0APhone: ${formPhone}%0AMessage: ${formMessage}`;
-    const whatsappUrl = `https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\+/g, '')}?text=${msg}`;
+    const customMsg = `Hello Trincomalee Kingstars Chess Academy,\n\nI would like to get more information about Chess Training.\n\nLocation: Trincomalee\n\nStudent/Parent Name: ${formName}\nPhone: ${formPhone}\nMessage: ${formMessage}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(customMsg)}`;
     
     window.open(whatsappUrl, '_blank');
     setSent(true);
@@ -23,7 +34,7 @@ export const ContactSection: React.FC = () => {
     <div className="space-y-8 pb-12">
       
       {/* Header */}
-      <div className="text-center space-y-2">
+      <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-bold text-amber-300">
           <MessageSquare className="h-3.5 w-3.5 text-amber-400" />
           <span>Get in Touch</span>
@@ -32,8 +43,23 @@ export const ContactSection: React.FC = () => {
           Contact Trincomalee Kingstars Chess Academy
         </h2>
         <p className="mx-auto max-w-xl text-xs text-slate-300 sm:text-sm">
-          Have questions about classes, student admissions, or tournament entries? Reach out to us directly through any of the quick channels below!
+          Have questions about chess training, student admissions, or tournament entries? Click below to open WhatsApp automatically!
         </p>
+
+        {/* PROMINENT 'CONTACT ACADEMY' WHATSAPP BUTTON */}
+        <div className="pt-2 flex justify-center">
+          <a
+            href={primaryWhatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 px-8 py-4 text-sm sm:text-base font-extrabold text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:scale-105 active:scale-95"
+          >
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-950/20 text-slate-950">
+              <MessageSquare className="h-5 w-5 fill-slate-950" />
+            </div>
+            <span>Contact Academy via WhatsApp</span>
+          </a>
+        </div>
       </div>
 
       {/* QUICK ACTION CONTACT BUTTONS */}
@@ -41,7 +67,7 @@ export const ContactSection: React.FC = () => {
         
         {/* WhatsApp */}
         <a
-          href={`https://wa.me/${CONTACT_DETAILS.whatsapp.replace(/\+/g, '')}?text=Hello!%20I%20have%20an%20inquiry%20regarding%20Trincomalee%20Kingstars%20Chess%20Academy.`}
+          href={primaryWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-4 text-center transition-all hover:border-emerald-500 hover:bg-emerald-950/40 active:scale-95"
@@ -49,20 +75,20 @@ export const ContactSection: React.FC = () => {
           <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-slate-950 shadow-md">
             <MessageSquare className="h-5 w-5" />
           </div>
-          <p className="text-xs font-bold text-white">WhatsApp</p>
-          <p className="mt-0.5 text-[10px] text-emerald-400 font-semibold">{CONTACT_DETAILS.whatsapp}</p>
+          <p className="text-xs font-bold text-white">📱 WhatsApp</p>
+          <p className="mt-0.5 text-[11px] text-emerald-400 font-bold">{whatsappDisplayNumber}</p>
         </a>
 
         {/* Phone Call */}
         <a
-          href={`tel:${CONTACT_DETAILS.phone}`}
+          href={`tel:+94715119204`}
           className="flex flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-950/20 p-4 text-center transition-all hover:border-amber-500 hover:bg-amber-950/40 active:scale-95"
         >
           <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-slate-950 shadow-md">
             <Phone className="h-5 w-5" />
           </div>
           <p className="text-xs font-bold text-white">Direct Phone</p>
-          <p className="mt-0.5 text-[10px] text-amber-300 font-semibold">{CONTACT_DETAILS.phone}</p>
+          <p className="mt-0.5 text-[11px] text-amber-300 font-bold">{whatsappDisplayNumber}</p>
         </a>
 
         {/* Facebook Page */}
@@ -99,13 +125,13 @@ export const ContactSection: React.FC = () => {
         {/* Contact Form (7 Cols) */}
         <div className="lg:col-span-7 rounded-2xl border border-amber-500/30 bg-[#131b2e] p-6 shadow-xl space-y-4">
           <h3 className="font-serif-title text-base font-bold text-white">
-            Send an Inquiry
+            Send a Direct Message via WhatsApp
           </h3>
 
           {sent ? (
             <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-6 text-center space-y-2">
               <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-400" />
-              <h4 className="text-base font-bold text-emerald-300">Message Dispatched!</h4>
+              <h4 className="text-base font-bold text-emerald-300">Message Prepared!</h4>
               <p className="text-xs text-slate-300">
                 Your message has been redirected to our WhatsApp line for instant response.
               </p>
@@ -136,7 +162,7 @@ export const ContactSection: React.FC = () => {
                   type="tel"
                   value={formPhone}
                   onChange={(e) => setFormPhone(e.target.value)}
-                  placeholder="077 123 4567"
+                  placeholder="071 511 9204"
                   className="w-full rounded-xl border border-slate-700 bg-slate-900 p-3 text-white focus:border-amber-500 focus:outline-none"
                 />
               </div>
@@ -155,32 +181,40 @@ export const ContactSection: React.FC = () => {
 
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 py-3.5 text-xs font-bold text-slate-950 shadow-md shadow-amber-500/20 hover:from-amber-400 hover:to-amber-500 active:scale-95"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 py-3.5 text-xs font-bold text-slate-950 shadow-md shadow-emerald-500/20 hover:from-emerald-400 hover:to-teal-500 active:scale-95"
               >
                 <Send className="h-4 w-4" />
-                <span>Send Message via WhatsApp</span>
+                <span>Contact Academy via WhatsApp</span>
               </button>
             </form>
           )}
         </div>
 
         {/* Location & Hours Details (5 Cols) */}
-        <div className="lg:col-span-5 rounded-2xl border border-slate-800 bg-[#131b2e] p-6 shadow-xl space-y-4 flex flex-col justify-between">
+        <div className="lg:col-span-5 rounded-2xl border border-slate-800 bg-[#131b2e] p-6 shadow-xl space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             <h3 className="font-serif-title text-base font-bold text-white">
-              Academy Training Center
+              Academy Information
             </h3>
 
-            <div className="space-y-3 text-xs text-slate-300">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="space-y-4 text-xs text-slate-300">
+              <div className="flex items-center gap-3 rounded-xl border border-amber-500/20 bg-slate-900/90 p-3.5">
+                <MapPin className="h-6 w-6 text-amber-400 shrink-0" />
                 <div>
-                  <p className="font-bold text-white">Address:</p>
-                  <p>{CONTACT_DETAILS.address}</p>
+                  <p className="font-bold text-slate-200">📍 Location:</p>
+                  <p className="text-sm font-black text-amber-300">Trincomalee</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-3 rounded-xl border border-emerald-500/20 bg-slate-900/90 p-3.5">
+                <MessageSquare className="h-6 w-6 text-emerald-400 shrink-0" />
+                <div>
+                  <p className="font-bold text-slate-200">📱 WhatsApp:</p>
+                  <p className="text-sm font-black text-emerald-400">+94 71 511 9204</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 px-1">
                 <Clock className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-bold text-white">Hours of Operation:</p>
@@ -192,7 +226,7 @@ export const ContactSection: React.FC = () => {
 
           <div className="rounded-xl border border-amber-500/20 bg-slate-900/80 p-4 text-xs text-amber-300/90 space-y-1">
             <p className="font-bold text-amber-400">Visiting Us?</p>
-            <p>Parent orientation and trial classes are held every Saturday morning at 9:00 AM.</p>
+            <p>Parent orientation and trial classes are held every Saturday morning at 9:00 AM in Trincomalee.</p>
           </div>
         </div>
 

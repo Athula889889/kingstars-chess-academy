@@ -128,10 +128,19 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
           })}
         </div>
 
-        {/* Footer info inside Drawer */}
-        <div className="border-t border-slate-800 p-3 text-center text-[11px] text-slate-500">
+        {/* Footer info & WhatsApp button inside Drawer */}
+        <div className="border-t border-slate-800 p-3 space-y-2 text-center text-[11px] text-slate-400">
+          <a
+            href={`https://wa.me/94715119204?text=${encodeURIComponent("Hello Trincomalee Kingstars Chess Academy,\n\nI would like to get more information about Chess Training.\n\nLocation: Trincomalee")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-500/40 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            <span>WhatsApp: +94 71 511 9204</span>
+          </a>
           <p className="italic text-amber-300/70">"Every move shapes the mind."</p>
-          <p className="mt-1">Trincomalee Kingstars Chess Academy</p>
+          <p>Trincomalee Kingstars Chess Academy</p>
         </div>
 
       </div>

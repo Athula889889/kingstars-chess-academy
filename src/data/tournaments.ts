@@ -14,7 +14,7 @@ export const ACADEMY_TOURNAMENTS: Tournament[] = [
     prizes: 'Trophies, Gold/Silver/Bronze Medals, Cash Prizes & Certificates',
     status: 'Registration Open',
     description: 'Annual flagship youth blitz tournament bringing together the top scholastic chess players in Eastern Province.',
-    whatsappContact: '94771234567'
+    whatsappContact: '94715119204'
   },
   {
     id: 'tourney_2',
@@ -29,7 +29,7 @@ export const ACADEMY_TOURNAMENTS: Tournament[] = [
     prizes: 'Total Prize Fund LKR 100,000 + Champion Trophies',
     status: 'Upcoming',
     description: 'Premier regional rapid tournament open to players of all ages and rating levels.',
-    whatsappContact: '94771234567'
+    whatsappContact: '94715119204'
   },
   {
     id: 'tourney_3',
@@ -44,6 +44,6 @@ export const ACADEMY_TOURNAMENTS: Tournament[] = [
     prizes: 'Participation Medals for All Children + Top 5 Trophies',
     status: 'Upcoming',
     description: 'Designed specifically to give new academy students friendly tournament experience and build confidence.',
-    whatsappContact: '94771234567'
+    whatsappContact: '94715119204'
   }
 ];

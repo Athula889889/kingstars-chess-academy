@@ -70,6 +70,7 @@ export interface Tournament {
 export interface ContactInfo {
   phone: string;
   whatsapp: string;
+  whatsappDisplay?: string;
   email: string;
   facebook: string;
   address: string;

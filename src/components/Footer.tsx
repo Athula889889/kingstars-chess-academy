@@ -26,14 +26,25 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
-          <button onClick={() => setActiveTab('home')} className="hover:text-amber-300">Home</button>
-          <button onClick={() => setActiveTab('learn')} className="hover:text-amber-300">Learn Chess</button>
-          <button onClick={() => setActiveTab('puzzles')} className="hover:text-amber-300">Puzzles</button>
-          <button onClick={() => setActiveTab('tournaments')} className="hover:text-amber-300">Tournaments</button>
-          <button onClick={() => setActiveTab('academy')} className="hover:text-amber-300">Academy</button>
-          <button onClick={() => setActiveTab('contact')} className="hover:text-amber-300">Contact</button>
+        {/* Links & Direct WhatsApp CTA */}
+        <div className="flex flex-col items-center gap-3 sm:items-end">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
+            <button onClick={() => setActiveTab('home')} className="hover:text-amber-300">Home</button>
+            <button onClick={() => setActiveTab('learn')} className="hover:text-amber-300">Learn Chess</button>
+            <button onClick={() => setActiveTab('puzzles')} className="hover:text-amber-300">Puzzles</button>
+            <button onClick={() => setActiveTab('tournaments')} className="hover:text-amber-300">Tournaments</button>
+            <button onClick={() => setActiveTab('academy')} className="hover:text-amber-300">Academy</button>
+            <button onClick={() => setActiveTab('contact')} className="hover:text-amber-300">Contact</button>
+          </div>
+          
+          <a
+            href={`https://wa.me/94715119204?text=${encodeURIComponent("Hello Trincomalee Kingstars Chess Academy,\n\nI would like to get more information about Chess Training.\n\nLocation: Trincomalee")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-500/40 px-3 py-1.5 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30"
+          >
+            <span>📱 WhatsApp: +94 71 511 9204</span>
+          </a>
         </div>
 
         {/* Copyright */}
